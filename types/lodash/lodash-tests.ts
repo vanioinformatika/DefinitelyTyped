@@ -1,5 +1,7 @@
 declare const $: any, jQuery: any;
 
+let x = 0
+
 interface IFoodOrganic {
     name: string;
     organic: boolean;
@@ -702,7 +704,7 @@ namespace TestFindIndex {
     let array: TResult[] | null | undefined = [] as any;
     let list: _.List<TResult> | null | undefined = [] as any;
     let predicateFn = (value: TResult, index: number, collection: _.List<TResult>) => true;
-    let fromIndex: number = 0;
+    let fromIndex = 0;
 
     {
         let result: number;
@@ -755,7 +757,7 @@ namespace TestFindLastIndex {
     let list: _.List<TResult> | null | undefined = [] as any;
 
     let predicateFn = (value: TResult, index: number, collection: _.List<TResult>) => true;
-    let fromIndex: number = 0;
+    let fromIndex = 0;
 
     {
         let result: number;
@@ -1336,7 +1338,7 @@ namespace TestLastIndexOf {
 namespace TestNth {
     let array: TResult[] | null | undefined = [] as any;
     let list: _.List<TResult> | null | undefined = [] as any;
-    let value: number = 0;
+    let value = 0;
 
     {
         let result: TResult | undefined;
@@ -6501,7 +6503,7 @@ namespace TestWrap {
     {
         type SampleWrapper = (arg1: number, arg2: number, arg3: string) => boolean;
 
-        let value: number = 0;
+        let value = 0;
         let wrapper: SampleWrapper = (a, b, c) => true;
         let result: _.LoDashImplicitObjectWrapper<SampleResult>;
 
@@ -6534,7 +6536,7 @@ namespace TestWrap {
     {
         type SampleWrapper = (arg1: number, arg2: number, arg3: string) => boolean;
 
-        let value: number = 0;
+        let value = 0;
         let wrapper: SampleWrapper = (a, b, c) => true;
         let result: _.LoDashExplicitObjectWrapper<SampleResult>;
 
@@ -10603,7 +10605,7 @@ namespace TestSet {
     type SampleResult = {a: {b: number[]}};
 
     let object: SampleObject = { a: {} };
-    let value: number = 0;
+    let value = 0;
 
     {
         let result: SampleResult;
@@ -10645,7 +10647,7 @@ namespace TestSetWith {
     type SampleResult = {a: {b: number[]}};
 
     let object: SampleObject = { a: {} };
-    let value: number = 0;
+    let value = 0;
     let customizer = (value: any, key: string, object: SampleObject) => 0;
 
     {

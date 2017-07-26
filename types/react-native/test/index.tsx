@@ -133,11 +133,11 @@ class Welcome extends React.Component {
 
         const { rootView, customView } = this.refs;
 
-        let nativeComponentHandle = findNodeHandle(rootView);
+        const nativeComponentHandle = findNodeHandle(rootView);
 
-        let customComponentHandle = findNodeHandle(customView);
+        const customComponentHandle = findNodeHandle(customView);
 
-        let fromHandle = findNodeHandle(customComponentHandle);
+        const fromHandle = findNodeHandle(customComponentHandle);
 
     }
 
@@ -216,7 +216,7 @@ export class FlatListTest {
 
 export class SectionListTest {
     render() {
-        var sections = [{
+        const sections = [{
             key: 's1',
             data: ['A', 'B', 'C', 'D', 'E']
         }, {
