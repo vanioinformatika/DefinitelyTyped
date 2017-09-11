@@ -273,14 +273,14 @@ declare namespace nano {
 
   interface Attachment {
     insert(docname: string, attname: string, att: null, contenttype: string, params?: any): NodeJS.WritableStream;
-    insert(docname: string, attname: string, att: any, contenttype: string, callback?: Callback<any>): Request;
+    insert(docname: string, attname: string, att: any, contenttype: string, callback?: Callback<AttachmentInsertResponse>): Request;
     insert(
       docname: string,
       attname: string,
       att: any,
       contenttype: string,
-      params: any,
-      callback?: Callback<any>
+      params: AttachmentInsertParams,
+      callback?: Callback<AttachmentInsertResponse>
     ): Request;
     get(docname: string, attname: string, callback?: Callback<any>): Request;
     get(
@@ -289,12 +289,12 @@ declare namespace nano {
       params: any,
       callback?: Callback<any>
     ): Request;
-    destroy(docname: string, attname: string, callback?: Callback<any>): Request;
+    destroy(docname: string, attname: string, callback?: Callback<AttachmentDestroyResponse>): Request;
     destroy(
       docname: string,
       attname: string,
-      params: any,
-      callback?: Callback<any>
+      params: AttachmentDestroyParams,
+      callback?: Callback<AttachmentDestroyResponse>
     ): Request;
   }
 
@@ -1029,6 +1029,39 @@ declare namespace nano {
     // Current update sequence for the database
     update_seq: any;
   }
+
+  // http://docs.couchdb.org/en/latest/api/document/attachments.html#put--db-docid-attname
+  interface AttachmentInsertParams {
+    // Document’s revision if adding an attachment to an existing document.
+    rev?: string;
+  }
+  interface AttachmentInsertResponse {
+    // Document ID
+    id: string;
+
+    // Operation status
+    ok: boolean;
+
+    // Revision MVCC token
+    rev: string;
+  }
+
+  // http://docs.couchdb.org/en/latest/api/document/attachments.html#delete--db-docid-attname
+  interface AttachmentDestroyParams {
+    // Document’s revision.
+    rev: string;
+  }
+  interface AttachmentDestroyResponse {
+    // Document ID
+    id: string;
+
+    // Operation status
+    ok: boolean;
+
+    // Revision MVCC token
+    rev: string;
+  }
+
 }
 
 export = nano;
