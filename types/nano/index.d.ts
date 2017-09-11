@@ -1062,7 +1062,6 @@ declare namespace nano {
     // Revision MVCC token
     rev: string;
   }
-
 }
 
 export = nano;
