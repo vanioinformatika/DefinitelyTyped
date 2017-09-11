@@ -125,7 +125,15 @@ mydb.attachment.insert(
   "att",
   "Hello World!",
   "text/plain",
-  (error: any, att: any) => {}
+  (error: any, response: nano.AttachmentInsertResponse) => {}
+);
+mydb.attachment.insert(
+  "new",
+  "att",
+  "Hello World!",
+  "text/plain",
+  {rev: "1-75757576575765"},
+  (error: any, response: nano.AttachmentInsertResponse) => { }
 );
 const attInsert: NodeJS.WritableStream = mydb.attachment.insert(
   "new",
@@ -133,7 +141,7 @@ const attInsert: NodeJS.WritableStream = mydb.attachment.insert(
   null,
   "text/plain"
 );
-mydb.attachment.destroy("new", "att", { rev: "123" }, (err, response) => {});
+mydb.attachment.destroy("new", "att", { rev: "123" }, (err, response: nano.AttachmentDestroyResponse) => {});
 mydb.attachment.get("new_string", "att", (error: any, helloWorld: any) => {});
 const attGet: NodeJS.ReadableStream = mydb.attachment.get("new_string", "att");
 
